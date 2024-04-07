@@ -28,7 +28,7 @@ public class CreateTaskCommandHandler implements ICommandHandler<Long, CreateTas
         TaskItem result =  _repository.save(task);
         _applicationEventPublisher.publishEvent(new CreateTaskDomainEvent(
                 UUID.randomUUID(),
-                task.getTaskItemId(),
+                result.getTaskItemId(),
                 1
         ));
         return result.getTaskItemId();
