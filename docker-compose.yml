@@ -20,5 +20,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
       - POSTGRES_ROOT_PASSWORD=root
+    ports:
+      - "6500:5432"
     networks:
       - test
