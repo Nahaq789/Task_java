@@ -14,9 +14,9 @@ public class TaskItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long TaskItemId;
     @Column(name = "TaskName")
-    private final String TaskName;
+    private String TaskName;
     @Column(name = "Content")
-    private final String Content;
+    private String Content;
 
     public TaskItem(long taskItemId, String taskName, String content) {
         this.TaskItemId = taskItemId;
@@ -28,4 +28,6 @@ public class TaskItem {
         this.TaskName = taskName;
         this.Content = content;
     }
+
+    public TaskItem() { }
 }

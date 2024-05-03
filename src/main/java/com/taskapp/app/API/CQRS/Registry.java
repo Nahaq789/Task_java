@@ -3,10 +3,12 @@ package com.taskapp.app.API.CQRS;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.GenericTypeResolver;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class Registry {
     private Map<Class<? extends ICommand>, CommandProvider> commandProviderMap = new HashMap<>();
     private Map<Class<? extends IQuery>, QueryProvider> queryProviderMap = new HashMap<>();

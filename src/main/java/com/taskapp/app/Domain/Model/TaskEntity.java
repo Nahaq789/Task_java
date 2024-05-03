@@ -16,7 +16,7 @@ import java.util.UUID;
 public class TaskEntity {
     @Id
     @Getter
-    private final UUID TaskId;
+    private UUID TaskId;
 
     @Column
     @Getter
@@ -24,6 +24,7 @@ public class TaskEntity {
     private long _taskStatusId;
 
     @Getter
+    @Transient
     private TaskStatus _taskStatus;
 
     @Transient
@@ -33,6 +34,8 @@ public class TaskEntity {
         this.TaskId = taskId;
         set_taskStatusId(TaskStatus.Create.getTaskStatusId());
     }
+
+    public TaskEntity() { }
     public void publishEvent(IDomainEvent event) {
         _taskDomainEvent.add(event);
     }
