@@ -23,14 +23,12 @@ public class CreateTaskCommandHandler implements ICommandHandler<Long, CreateTas
     public Long Handle(CreateTaskCommand command) {
         TaskItem task = new TaskItem(
                 command.getTaskName(),
-                command.getContent()
-        );
-        TaskItem result =  _repository.save(task);
+                command.getContent());
+        TaskItem result = _repository.save(task);
         _applicationEventPublisher.publishEvent(new CreateTaskDomainEvent(
                 UUID.randomUUID(),
                 result.getTaskItemId(),
-                1
-        ));
+                1));
         return result.getTaskItemId();
     }
 }

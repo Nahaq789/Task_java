@@ -11,8 +11,8 @@ public class TaskStatus {
     private long TaskStatusId;
     private String Status;
 
-    public static TaskStatus Create = new TaskStatus(1, new Object(){}.getClass().getEnclosingMethod().getName());
-    public static TaskStatus ToDO = new TaskStatus(2, new Object(){}.getClass().getEnclosingMethod().getName());
+    public static TaskStatus Create = new TaskStatus(1, "Create");
+    public static TaskStatus ToDo = new TaskStatus(2, new Object(){}.getClass().getEnclosingMethod().getName());
     public static TaskStatus Doing = new TaskStatus(3, new Object(){}.getClass().getEnclosingMethod().getName());
     public static TaskStatus Commit = new TaskStatus(4, new Object(){}.getClass().getEnclosingMethod().getName());
     public static TaskStatus Done = new TaskStatus(5, new Object(){}.getClass().getEnclosingMethod().getName());

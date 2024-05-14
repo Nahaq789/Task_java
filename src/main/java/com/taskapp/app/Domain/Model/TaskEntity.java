@@ -15,12 +15,10 @@ import java.util.UUID;
 @Table(name = "Task")
 public class TaskEntity {
     @Id
-    @Getter
+    @Column(name = "task_id")
     private UUID TaskId;
 
-    @Column
-    @Getter
-    @Setter
+    @Column(name = "task_status_id")
     private long _taskStatusId;
 
     @Getter
@@ -30,9 +28,9 @@ public class TaskEntity {
     @Transient
     private final List<IDomainEvent> _taskDomainEvent = new ArrayList<>();
 
-    public TaskEntity(UUID taskId) {
+    public TaskEntity(UUID taskId, long taskStatusId) {
         this.TaskId = taskId;
-        set_taskStatusId(TaskStatus.Create.getTaskStatusId());
+        this._taskStatusId = taskStatusId;
     }
 
     public TaskEntity() { }
