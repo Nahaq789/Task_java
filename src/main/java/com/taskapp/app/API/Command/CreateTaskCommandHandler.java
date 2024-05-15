@@ -1,12 +1,14 @@
 package com.taskapp.app.API.Command;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.taskapp.app.API.CQRS.ICommandHandler;
 import com.taskapp.app.Domain.Model.TaskItem;
 import com.taskapp.app.Infrastructure.TaskItemRepository;
+
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
