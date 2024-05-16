@@ -1,10 +1,11 @@
 package com.taskapp.app.API.Command.Event;
 
-import com.taskapp.app.Domain.Model.Event.CreateTaskDomainEvent;
-import com.taskapp.app.Domain.Model.TaskEntity;
-import com.taskapp.app.Infrastructure.TaskRepository;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
+
+import com.taskapp.app.Domain.Model.TaskEntity;
+import com.taskapp.app.Domain.Model.Event.CreateTaskDomainEvent;
+import com.taskapp.app.Infrastructure.TaskRepository;
 
 @Service
 public class CreateTaskDomainEventHandler implements IDomainEventHandler<CreateTaskDomainEvent> {
