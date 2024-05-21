@@ -1,12 +1,12 @@
 package com.taskapp.app.API.CQRS;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.GenericTypeResolver;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class Registry {
@@ -26,14 +26,14 @@ public class Registry {
     }
 
     public void registerCommand(ApplicationContext applicationContext, String name) {
-        Class<ICommandHandler<?, ?>> handlerClass = (Class<ICommandHandler<?,?>>) applicationContext.getType(name);
+        Class<ICommandHandler<?, ?>> handlerClass = (Class<ICommandHandler<?, ?>>) applicationContext.getType(name);
         Class<?>[] generics = GenericTypeResolver.resolveTypeArguments(handlerClass, ICommandHandler.class);
         Class<? extends ICommand> commandType = (Class<? extends ICommand>) generics[1];
         commandProviderMap.put(commandType, new CommandProvider(applicationContext, handlerClass));
     }
 
     public void registerQuery(ApplicationContext applicationContext, String name) {
-        Class<IQueryHandler<?, ?>> handlerClass = (Class<IQueryHandler<?,?>>) applicationContext.getType(name);
+        Class<IQueryHandler<?, ?>> handlerClass = (Class<IQueryHandler<?, ?>>) applicationContext.getType(name);
         Class<?>[] generics = GenericTypeResolver.resolveTypeArguments(handlerClass, IQueryHandler.class);
         Class<? extends IQuery> queryType = (Class<? extends IQuery>) generics[1];
         queryProviderMap.put(queryType, new QueryProvider(applicationContext, handlerClass));

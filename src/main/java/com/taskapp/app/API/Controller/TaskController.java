@@ -41,8 +41,7 @@ public class TaskController {
         Long result = _bus.executeCommand(command);
         _applicationEventPublisher.publishEvent(new CreateTaskDomainEvent(
                 UUID.randomUUID(),
-                result,
-                1));
-        return ResponseEntity.ok("aaa");
+                result));
+        return ResponseEntity.ok("Task Created");
     }
 }

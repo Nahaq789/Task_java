@@ -1,15 +1,20 @@
 package com.taskapp.app.Domain.Model;
 
-import com.taskapp.app.Domain.Model.Event.IDomainEvent;
-import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.springframework.data.domain.AfterDomainEventPublication;
-import org.springframework.data.domain.DomainEvents;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.data.domain.AfterDomainEventPublication;
+import org.springframework.data.domain.DomainEvents;
+
+import com.taskapp.app.Domain.Model.Event.IDomainEvent;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
+import lombok.Getter;
 
 @Entity
 @Table(name = "Task")
@@ -33,7 +38,9 @@ public class TaskEntity {
         this._taskStatusId = taskStatusId;
     }
 
-    public TaskEntity() { }
+    public TaskEntity() {
+    }
+
     public void publishEvent(IDomainEvent event) {
         _taskDomainEvent.add(event);
     }
